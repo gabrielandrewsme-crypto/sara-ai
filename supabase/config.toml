@@ -1,0 +1,10 @@
+project_id = "zxbgtpcxilrgjflxmkns"
+
+[functions.sara-chat]
+verify_jwt = false
+
+[functions.kiwify-webhook]
+verify_jwt = false
+
+[functions.transcribe-audio]
+verify_jwt = false
