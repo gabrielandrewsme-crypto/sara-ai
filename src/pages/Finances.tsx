@@ -38,10 +38,10 @@ export const Finances: React.FC = () => {
   const { transactions, addTransaction, deleteTransaction, user } = useSara();
   const [isOpen, setIsOpen] = useState(false);
   const [dismissedAlerts, setDismissedAlerts] = useState<string[]>([]);
-  
+
   // Hook que monitora gastos e dispara alertas automáticos
   const spendingAnalysis = useSpendingAlerts(transactions);
-  
+
   const [newTransaction, setNewTransaction] = useState({
     type: 'expense' as 'income' | 'expense',
     amount: '',
@@ -53,11 +53,11 @@ export const Finances: React.FC = () => {
   const totalIncome = transactions
     .filter(t => t.type === 'income')
     .reduce((acc, t) => acc + t.amount, 0);
-  
+
   const totalExpenses = transactions
     .filter(t => t.type === 'expense')
     .reduce((acc, t) => acc + t.amount, 0);
-  
+
   const balance = totalIncome - totalExpenses;
   const expenseRatio = totalIncome > 0 ? (totalExpenses / totalIncome) * 100 : 0;
 
@@ -73,7 +73,7 @@ export const Finances: React.FC = () => {
       .forEach(t => {
         categoryMap[t.category] = (categoryMap[t.category] || 0) + t.amount;
       });
-    
+
     return Object.entries(categoryMap).map(([name, value]) => ({
       name,
       value,
@@ -85,7 +85,7 @@ export const Finances: React.FC = () => {
   const monthlyData = useMemo(() => {
     const months: Record<string, { month: string; receitas: number; despesas: number }> = {};
     const now = new Date();
-    
+
     // Initialize last 6 months
     for (let i = 5; i >= 0; i--) {
       const date = new Date(now.getFullYear(), now.getMonth() - i, 1);
@@ -93,7 +93,7 @@ export const Finances: React.FC = () => {
       const monthName = date.toLocaleDateString('pt-BR', { month: 'short' }).replace('.', '');
       months[key] = { month: monthName.charAt(0).toUpperCase() + monthName.slice(1), receitas: 0, despesas: 0 };
     }
-    
+
     transactions.forEach(t => {
       const date = new Date(t.date);
       const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
@@ -105,7 +105,7 @@ export const Finances: React.FC = () => {
         }
       }
     });
-    
+
     return Object.values(months);
   }, [transactions]);
 
@@ -114,19 +114,19 @@ export const Finances: React.FC = () => {
     const needs = transactions
       .filter(t => t.type === 'expense' && NEEDS_CATEGORIES.includes(t.category))
       .reduce((acc, t) => acc + t.amount, 0);
-    
+
     const wants = transactions
       .filter(t => t.type === 'expense' && WANTS_CATEGORIES.includes(t.category))
       .reduce((acc, t) => acc + t.amount, 0);
-    
+
     const savings = transactions
       .filter(t => t.type === 'income' && SAVINGS_CATEGORIES.includes(t.category))
       .reduce((acc, t) => acc + t.amount, 0);
-    
+
     const idealNeeds = totalIncome * 0.5;
     const idealWants = totalIncome * 0.3;
     const idealSavings = totalIncome * 0.2;
-    
+
     return {
       needs: { current: needs, ideal: idealNeeds, percent: totalIncome > 0 ? (needs / totalIncome) * 100 : 0 },
       wants: { current: wants, ideal: idealWants, percent: totalIncome > 0 ? (wants / totalIncome) * 100 : 0 },
@@ -137,7 +137,7 @@ export const Finances: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!newTransaction.amount || !newTransaction.category) return;
-    
+
     addTransaction({
       type: newTransaction.type,
       amount: parseFloat(newTransaction.amount),
@@ -145,7 +145,7 @@ export const Finances: React.FC = () => {
       category: newTransaction.category,
       date: newTransaction.date,
     });
-    
+
     setNewTransaction({
       type: 'expense',
       amount: '',
@@ -160,41 +160,30 @@ export const Finances: React.FC = () => {
     <div className="py-4 space-y-6">
       {/* Summary Cards */}
       <div className="grid grid-cols-3 gap-3">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="sara-card bg-sara-mint-light"
-        >
-          <TrendingUp className="w-5 h-5 text-sara-mint mb-2" />
-          <p className="text-xs text-muted-foreground">Ganhos</p>
-          <p className="text-lg font-bold text-foreground">
-            R$ {totalIncome.toLocaleString('pt-BR')}
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+          className="bg-[#E8F5F2] p-4 rounded-2xl border border-[#3D7A6F]/10">
+          <TrendingUp className="w-5 h-5 text-[#3D7A6F] mb-2" />
+          <p className="text-[10px] font-bold text-[#3D7A6F] uppercase tracking-wide">Ganhos</p>
+          <p className="text-base font-extrabold text-[#1E2A2A] mt-0.5 leading-tight">
+            R$ {totalIncome.toLocaleString('pt-BR', { minimumFractionDigits: 0 })}
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="sara-card bg-sara-coral-light"
-        >
-          <TrendingDown className="w-5 h-5 text-sara-coral mb-2" />
-          <p className="text-xs text-muted-foreground">Gastos</p>
-          <p className="text-lg font-bold text-foreground">
-            R$ {totalExpenses.toLocaleString('pt-BR')}
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }}
+          className="bg-[#FEF3EE] p-4 rounded-2xl border border-[#E8725A]/10">
+          <TrendingDown className="w-5 h-5 text-[#E8725A] mb-2" />
+          <p className="text-[10px] font-bold text-[#E8725A] uppercase tracking-wide">Gastos</p>
+          <p className="text-base font-extrabold text-[#1E2A2A] mt-0.5 leading-tight">
+            R$ {totalExpenses.toLocaleString('pt-BR', { minimumFractionDigits: 0 })}
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className={`sara-card ${balance >= 0 ? 'bg-sara-teal-light' : 'bg-destructive/10'}`}
-        >
-          <Wallet className={`w-5 h-5 mb-2 ${balance >= 0 ? 'text-primary' : 'text-destructive'}`} />
-          <p className="text-xs text-muted-foreground">Saldo</p>
-          <p className={`text-lg font-bold ${balance >= 0 ? 'text-foreground' : 'text-destructive'}`}>
-            R$ {balance.toLocaleString('pt-BR')}
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
+          className={`p-4 rounded-2xl border ${balance >= 0 ? 'bg-white border-slate-100' : 'bg-[#E8725A]/5 border-[#E8725A]/15'}`}>
+          <Wallet className={`w-5 h-5 mb-2 ${balance >= 0 ? 'text-[#3D7A6F]' : 'text-[#E8725A]'}`} />
+          <p className={`text-[10px] font-bold uppercase tracking-wide ${balance >= 0 ? 'text-[#3D7A6F]' : 'text-[#E8725A]'}`}>Saldo</p>
+          <p className={`text-base font-extrabold mt-0.5 leading-tight ${balance >= 0 ? 'text-[#1E2A2A]' : 'text-[#E8725A]'}`}>
+            R$ {Math.abs(balance).toLocaleString('pt-BR', { minimumFractionDigits: 0 })}
           </p>
         </motion.div>
       </div>
@@ -212,7 +201,7 @@ export const Finances: React.FC = () => {
               <Bell className="w-4 h-4 text-primary" />
               <span>Alertas de Gastos</span>
             </div>
-            
+
             {spendingAnalysis.needs.isOver && !dismissedAlerts.includes('needs') && (
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -224,7 +213,7 @@ export const Finances: React.FC = () => {
                 <div className="flex-1">
                   <p className="font-medium text-orange-600 text-sm">Necessidades acima de 50%</p>
                   <p className="text-xs text-muted-foreground mt-0.5">
-                    Você está gastando {spendingAnalysis.needs.percent.toFixed(0)}% da renda com necessidades. 
+                    Você está gastando {spendingAnalysis.needs.percent.toFixed(0)}% da renda com necessidades.
                     Revise gastos fixos como aluguel, transporte ou alimentação.
                   </p>
                 </div>
@@ -250,7 +239,7 @@ export const Finances: React.FC = () => {
                 <div className="flex-1">
                   <p className="font-medium text-sara-coral text-sm">Gastos supérfluos acima de 30%</p>
                   <p className="text-xs text-muted-foreground mt-0.5">
-                    Você está gastando {spendingAnalysis.wants.percent.toFixed(0)}% da renda com desejos. 
+                    Você está gastando {spendingAnalysis.wants.percent.toFixed(0)}% da renda com desejos.
                     Considere reduzir gastos com lazer, streaming ou compras não essenciais.
                   </p>
                 </div>
@@ -276,7 +265,7 @@ export const Finances: React.FC = () => {
                 <div className="flex-1">
                   <p className="font-medium text-yellow-600 text-sm">Poupança abaixo de 20%</p>
                   <p className="text-xs text-muted-foreground mt-0.5">
-                    Você está poupando apenas {spendingAnalysis.savings.percent.toFixed(0)}% da renda. 
+                    Você está poupando apenas {spendingAnalysis.savings.percent.toFixed(0)}% da renda.
                     Tente reservar mais para investimentos e emergências.
                   </p>
                 </div>
@@ -324,7 +313,7 @@ export const Finances: React.FC = () => {
           <p className="text-xs text-muted-foreground mb-4">
             Método de educação financeira: 50% necessidades, 30% desejos, 20% poupança
           </p>
-          
+
           <div className="space-y-4">
             {/* Necessidades - 50% */}
             <div>
@@ -338,7 +327,7 @@ export const Finances: React.FC = () => {
                 </span>
               </div>
               <div className="h-3 bg-secondary rounded-full overflow-hidden">
-                <div 
+                <div
                   className={`h-full rounded-full transition-all duration-500 ${rule503020.needs.percent > 50 ? 'bg-sara-coral' : 'bg-sara-teal'}`}
                   style={{ width: `${Math.min(rule503020.needs.percent * 2, 100)}%` }}
                 />
@@ -367,7 +356,7 @@ export const Finances: React.FC = () => {
                 </span>
               </div>
               <div className="h-3 bg-secondary rounded-full overflow-hidden">
-                <div 
+                <div
                   className={`h-full rounded-full transition-all duration-500 ${rule503020.wants.percent > 30 ? 'bg-sara-coral' : 'bg-purple-500'}`}
                   style={{ width: `${Math.min((rule503020.wants.percent / 30) * 100, 100)}%` }}
                 />
@@ -395,7 +384,7 @@ export const Finances: React.FC = () => {
                 </span>
               </div>
               <div className="h-3 bg-secondary rounded-full overflow-hidden">
-                <div 
+                <div
                   className={`h-full rounded-full transition-all duration-500 ${rule503020.savings.percent >= 20 ? 'bg-sara-mint' : 'bg-yellow-500'}`}
                   style={{ width: `${Math.min((rule503020.savings.percent / 20) * 100, 100)}%` }}
                 />
@@ -449,10 +438,10 @@ export const Finances: React.FC = () => {
                         <Cell key={`cell-${index}`} fill={entry.color} />
                       ))}
                     </Pie>
-                    <Tooltip 
+                    <Tooltip
                       formatter={(value: number) => [`R$ ${value.toLocaleString('pt-BR')}`, 'Valor']}
-                      contentStyle={{ 
-                        backgroundColor: 'hsl(var(--card))', 
+                      contentStyle={{
+                        backgroundColor: 'hsl(var(--card))',
                         border: '1px solid hsl(var(--border))',
                         borderRadius: '8px',
                       }}
@@ -462,12 +451,12 @@ export const Finances: React.FC = () => {
               </div>
               <div className="flex flex-wrap gap-2 mt-2">
                 {expenseByCategory.map((cat) => (
-                  <span 
+                  <span
                     key={cat.name}
                     className="inline-flex items-center gap-1.5 text-xs"
                   >
-                    <span 
-                      className="w-2.5 h-2.5 rounded-full" 
+                    <span
+                      className="w-2.5 h-2.5 rounded-full"
                       style={{ backgroundColor: cat.color }}
                     />
                     {cat.name}
@@ -491,28 +480,28 @@ export const Finances: React.FC = () => {
             <div className="h-48">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={monthlyData} barGap={2}>
-                  <XAxis 
-                    dataKey="month" 
+                  <XAxis
+                    dataKey="month"
                     tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }}
                     axisLine={false}
                     tickLine={false}
                   />
-                  <YAxis 
+                  <YAxis
                     tick={{ fontSize: 10, fill: 'hsl(var(--muted-foreground))' }}
                     axisLine={false}
                     tickLine={false}
                     tickFormatter={(value) => value >= 1000 ? `${(value / 1000).toFixed(0)}k` : value}
                     width={35}
                   />
-                  <Tooltip 
+                  <Tooltip
                     formatter={(value: number) => [`R$ ${value.toLocaleString('pt-BR')}`, '']}
-                    contentStyle={{ 
-                      backgroundColor: 'hsl(var(--card))', 
+                    contentStyle={{
+                      backgroundColor: 'hsl(var(--card))',
                       border: '1px solid hsl(var(--border))',
                       borderRadius: '8px',
                     }}
                   />
-                  <Legend 
+                  <Legend
                     wrapperStyle={{ fontSize: '12px' }}
                     formatter={(value) => <span className="text-foreground">{value}</span>}
                   />
@@ -527,59 +516,52 @@ export const Finances: React.FC = () => {
 
       {/* Transactions List */}
       <section>
-        <h2 className="sara-section-title">Transações Recentes</h2>
-        <div className="space-y-3">
+        <h2 className="text-[#1E2A2A] font-bold text-base mb-3">Transações Recentes</h2>
+        <div className="space-y-2">
           <AnimatePresence mode="popLayout">
             {sortedTransactions.map((transaction, index) => (
               <motion.div
                 key={transaction.id}
                 layout
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ delay: index * 0.05 }}
-                className="sara-card flex items-center gap-3"
+                transition={{ delay: index * 0.04 }}
+                className="bg-white rounded-2xl p-4 flex items-center gap-3 border border-slate-100 shadow-sm"
               >
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                  transaction.type === 'income'
-                    ? 'bg-sara-mint-light text-sara-mint'
-                    : 'bg-sara-coral-light text-sara-coral'
-                }`}>
-                  {transaction.type === 'income' ? (
-                    <TrendingUp className="w-5 h-5" />
-                  ) : (
-                    <TrendingDown className="w-5 h-5" />
-                  )}
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${transaction.type === 'income'
+                    ? 'bg-[#E8F5F2] text-[#3D7A6F]'
+                    : 'bg-[#FEF3EE] text-[#E8725A]'
+                  }`}>
+                  {transaction.type === 'income'
+                    ? <TrendingUp className="w-5 h-5" />
+                    : <TrendingDown className="w-5 h-5" />}
                 </div>
-                
+
                 <div className="flex-1 min-w-0">
-                  <p className="font-semibold text-foreground truncate">
+                  <p className="font-semibold text-[#1E2A2A] text-sm truncate">
                     {transaction.description || transaction.category}
                   </p>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs text-muted-foreground">
+                  <div className="flex items-center gap-2 mt-0.5">
+                    <span className="text-xs text-slate-400">
                       {new Date(transaction.date).toLocaleDateString('pt-BR')}
                     </span>
-                    <span className="sara-badge text-xs bg-secondary text-secondary-foreground">
+                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-500">
                       {transaction.category}
                     </span>
                   </div>
                 </div>
 
                 <div className="text-right">
-                  <p className={`font-bold ${
-                    transaction.type === 'income' ? 'text-sara-mint' : 'text-sara-coral'
-                  }`}>
-                    {transaction.type === 'income' ? '+' : '-'} R$ {transaction.amount.toLocaleString('pt-BR')}
+                  <p className={`font-bold text-sm ${transaction.type === 'income' ? 'text-[#3D7A6F]' : 'text-[#E8725A]'
+                    }`}>
+                    {transaction.type === 'income' ? '+' : '-'} R$ {transaction.amount.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                   </p>
                 </div>
 
-                <Button
-                  variant="ghost"
-                  size="icon"
+                <Button variant="ghost" size="icon"
                   onClick={() => deleteTransaction(transaction.id)}
-                  className="text-muted-foreground hover:text-destructive flex-shrink-0"
-                >
+                  className="text-slate-300 hover:text-[#E8725A] flex-shrink-0 w-8 h-8">
                   <Trash2 className="w-4 h-4" />
                 </Button>
               </motion.div>
@@ -587,9 +569,13 @@ export const Finances: React.FC = () => {
           </AnimatePresence>
 
           {transactions.length === 0 && (
-            <p className="text-center text-muted-foreground py-8">
-              Nenhuma transação registrada
-            </p>
+            <div className="text-center py-12">
+              <div className="w-16 h-16 bg-[#E8F5F2] rounded-2xl flex items-center justify-center mx-auto mb-3">
+                <Wallet className="w-8 h-8 text-[#3D7A6F]" />
+              </div>
+              <p className="font-semibold text-[#1E2A2A]">Nenhuma transação</p>
+              <p className="text-xs text-slate-400 mt-1">Adicione sua primeira transação</p>
+            </div>
           )}
         </div>
       </section>
@@ -598,11 +584,11 @@ export const Finances: React.FC = () => {
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogTrigger asChild>
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="fixed bottom-24 right-4 w-14 h-14 bg-gradient-sara rounded-2xl shadow-glow flex items-center justify-center"
+            whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
+            className="fixed bottom-24 right-4 w-14 h-14 bg-[#3D7A6F] rounded-full
+                       shadow-[0_8px_24px_rgba(62,122,111,0.4)] flex items-center justify-center"
           >
-            <Plus className="w-6 h-6 text-primary-foreground" />
+            <Plus className="w-6 h-6 text-white" />
           </motion.button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-md">
@@ -615,11 +601,10 @@ export const Finances: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setNewTransaction({ ...newTransaction, type: 'income', category: '' })}
-                className={`p-3 rounded-xl flex items-center justify-center gap-2 transition-all ${
-                  newTransaction.type === 'income'
+                className={`p-3 rounded-xl flex items-center justify-center gap-2 transition-all ${newTransaction.type === 'income'
                     ? 'bg-sara-mint text-card'
                     : 'bg-secondary text-secondary-foreground'
-                }`}
+                  }`}
               >
                 <TrendingUp className="w-5 h-5" />
                 <span className="font-medium">Ganho</span>
@@ -627,11 +612,10 @@ export const Finances: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setNewTransaction({ ...newTransaction, type: 'expense', category: '' })}
-                className={`p-3 rounded-xl flex items-center justify-center gap-2 transition-all ${
-                  newTransaction.type === 'expense'
+                className={`p-3 rounded-xl flex items-center justify-center gap-2 transition-all ${newTransaction.type === 'expense'
                     ? 'bg-sara-coral text-card'
                     : 'bg-secondary text-secondary-foreground'
-                }`}
+                  }`}
               >
                 <TrendingDown className="w-5 h-5" />
                 <span className="font-medium">Gasto</span>
@@ -693,13 +677,12 @@ export const Finances: React.FC = () => {
               />
             </div>
 
-            <Button 
-              type="submit" 
-              className={`w-full ${
-                newTransaction.type === 'income' 
-                  ? 'bg-sara-mint hover:bg-sara-mint/90' 
+            <Button
+              type="submit"
+              className={`w-full ${newTransaction.type === 'income'
+                  ? 'bg-sara-mint hover:bg-sara-mint/90'
                   : 'bg-sara-coral hover:bg-sara-coral/90'
-              }`}
+                }`}
             >
               Adicionar {newTransaction.type === 'income' ? 'Ganho' : 'Gasto'}
             </Button>
