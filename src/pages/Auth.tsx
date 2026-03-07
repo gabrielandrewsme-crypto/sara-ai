@@ -10,7 +10,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useToast } from '@/hooks/use-toast';
-import saraLogo from '@/assets/sara-logo.jpeg';
+import { SaraLogo } from '@/components/SaraLogo';
 import { z } from 'zod';
 
 const loginSchema = z.object({
@@ -156,9 +156,9 @@ const Auth: React.FC = () => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: 'spring' }}
-            className="w-20 h-20 rounded-2xl mx-auto mb-4 shadow-lg overflow-hidden"
+            className="w-20 h-20 mx-auto mb-4 shadow-lg overflow-hidden flex items-center justify-center rounded-2xl bg-[#1E0A3D]"
           >
-            <img src={saraLogo} alt="Sara logo" className="w-full h-full object-cover" />
+            <SaraLogo size={80} />
           </motion.div>
           <h1 className="text-3xl font-bold gradient-text">Sara</h1>
           <p className="text-muted-foreground mt-2">Sua assistente pessoal inteligente</p>
@@ -214,57 +214,57 @@ const Auth: React.FC = () => {
                     )}
                   </div>
 
-                    <Button
-                      type="submit"
-                      className="w-full bg-gradient-to-r from-sara-lavender to-sara-pink hover:opacity-90"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? 'Entrando...' : 'Entrar'}
-                      <ArrowRight className="ml-2 w-4 h-4" />
-                    </Button>
+                  <Button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-sara-lavender to-sara-pink hover:opacity-90"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Entrando...' : 'Entrar'}
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
 
-                    <button
-                      type="button"
-                      onClick={() => setIsForgotPassword(true)}
-                      className="w-full text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      Esqueceu sua senha?
-                    </button>
-                  </form>
+                  <button
+                    type="button"
+                    onClick={() => setIsForgotPassword(true)}
+                    className="w-full text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    Esqueceu sua senha?
+                  </button>
+                </form>
 
-                  {isForgotPassword && (
-                    <div className="mt-4 pt-4 border-t border-border">
-                      <p className="text-sm text-muted-foreground mb-3">Digite seu email para receber o link de redefinição:</p>
-                      <form onSubmit={handleForgotPassword} className="space-y-3">
-                        <div className="relative">
-                          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                          <Input
-                            type="email"
-                            placeholder="seu@email.com"
-                            value={forgotEmail}
-                            onChange={(e) => setForgotEmail(e.target.value)}
-                            className="pl-10"
-                          />
-                        </div>
-                        <div className="flex gap-2">
-                          <Button
-                            type="submit"
-                            className="flex-1"
-                            disabled={isSubmitting}
-                          >
-                            {isSubmitting ? 'Enviando...' : 'Enviar link'}
-                          </Button>
-                          <Button
-                            type="button"
-                            variant="outline"
-                            onClick={() => setIsForgotPassword(false)}
-                          >
-                            Cancelar
-                          </Button>
-                        </div>
-                      </form>
-                    </div>
-                  )}
+                {isForgotPassword && (
+                  <div className="mt-4 pt-4 border-t border-border">
+                    <p className="text-sm text-muted-foreground mb-3">Digite seu email para receber o link de redefinição:</p>
+                    <form onSubmit={handleForgotPassword} className="space-y-3">
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                        <Input
+                          type="email"
+                          placeholder="seu@email.com"
+                          value={forgotEmail}
+                          onChange={(e) => setForgotEmail(e.target.value)}
+                          className="pl-10"
+                        />
+                      </div>
+                      <div className="flex gap-2">
+                        <Button
+                          type="submit"
+                          className="flex-1"
+                          disabled={isSubmitting}
+                        >
+                          {isSubmitting ? 'Enviando...' : 'Enviar link'}
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="outline"
+                          onClick={() => setIsForgotPassword(false)}
+                        >
+                          Cancelar
+                        </Button>
+                      </div>
+                    </form>
+                  </div>
+                )}
               </CardContent>
             </TabsContent>
 
