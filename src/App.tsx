@@ -53,7 +53,7 @@ const App = () => (
                   </SubscriptionGuard>
                 </ProtectedRoute>
               }>
-                <Route path="/" element={<Dashboard />} />
+                <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/tasks" element={<Tasks />} />
                 <Route path="/calendar" element={<CalendarPage />} />
                 <Route path="/finances" element={<Finances />} />
