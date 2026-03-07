@@ -1,10 +1,9 @@
 import React, { useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 import {
   Brain, CheckSquare, Wallet, Calendar, MessageCircle,
-  Sparkles, ArrowRight, Timer, CheckCircle2, MapPin,
+  Sparkles, ArrowRight, Timer, CheckCircle2,
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 
 // ─── Data ──────────────────────────────────────────────────────────────────
