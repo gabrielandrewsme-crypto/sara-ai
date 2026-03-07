@@ -6,23 +6,23 @@
 
 @layer base {
   :root {
-    --background: 195 30% 98%;
-    --foreground: 210 25% 15%;
+    --background: 270 20% 98%;
+    --foreground: 270 25% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 25% 15%;
+    --card-foreground: 270 25% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 25% 15%;
+    --popover-foreground: 270 25% 12%;
 
-    --primary: 175 50% 42%;
+    --primary: 270 52% 37%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 195 25% 94%;
-    --secondary-foreground: 210 25% 25%;
+    --secondary: 270 20% 95%;
+    --secondary-foreground: 270 25% 25%;
 
-    --muted: 195 20% 92%;
-    --muted-foreground: 210 15% 50%;
+    --muted: 270 15% 93%;
+    --muted-foreground: 270 12% 50%;
 
     --accent: 15 85% 65%;
     --accent-foreground: 0 0% 100%;
@@ -30,15 +30,15 @@
     --destructive: 0 70% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 195 20% 88%;
-    --input: 195 20% 88%;
-    --ring: 175 50% 42%;
+    --border: 270 15% 90%;
+    --input: 270 15% 90%;
+    --ring: 270 52% 37%;
 
     --radius: 1rem;
 
     /* Custom Sara colors */
-    --sara-teal: 175 50% 42%;
-    --sara-teal-light: 175 45% 92%;
+    --sara-teal: 270 52% 37%;
+    --sara-teal-light: 270 45% 93%;
     --sara-coral: 15 85% 65%;
     --sara-coral-light: 15 80% 94%;
     --sara-lavender: 260 50% 70%;
@@ -47,18 +47,18 @@
     --sara-mint-light: 160 40% 94%;
     --sara-gold: 45 80% 55%;
     --sara-gold-light: 45 70% 94%;
-    --sara-navy: 210 40% 20%;
+    --sara-navy: 270 40% 15%;
 
     /* Gradients */
-    --gradient-sara: linear-gradient(135deg, hsl(175 50% 42%) 0%, hsl(160 45% 55%) 100%);
+    --gradient-sara: linear-gradient(135deg, hsl(270 52% 37%) 0%, hsl(280 45% 50%) 100%);
     --gradient-coral: linear-gradient(135deg, hsl(15 85% 65%) 0%, hsl(35 80% 60%) 100%);
-    --gradient-soft: linear-gradient(180deg, hsl(195 30% 98%) 0%, hsl(195 25% 96%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(270 20% 98%) 0%, hsl(270 15% 96%) 100%);
 
     /* Shadows */
-    --shadow-sm: 0 2px 8px hsl(210 25% 15% / 0.05);
-    --shadow-md: 0 4px 16px hsl(210 25% 15% / 0.08);
-    --shadow-lg: 0 8px 32px hsl(210 25% 15% / 0.12);
-    --shadow-glow: 0 0 20px hsl(175 50% 42% / 0.25);
+    --shadow-sm: 0 2px 8px hsl(270 25% 12% / 0.05);
+    --shadow-md: 0 4px 16px hsl(270 25% 12% / 0.08);
+    --shadow-lg: 0 8px 32px hsl(270 25% 12% / 0.12);
+    --shadow-glow: 0 0 20px hsl(270 52% 37% / 0.30);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -80,40 +80,40 @@
     --popover: 210 30% 14%;
     --popover-foreground: 195 25% 95%;
 
-    --primary: 175 55% 50%;
-    --primary-foreground: 210 35% 10%;
+    --primary: 270 55% 60%;
+    --primary-foreground: 270 10% 8%;
 
-    --secondary: 210 25% 18%;
-    --secondary-foreground: 195 20% 85%;
+    --secondary: 270 18% 18%;
+    --secondary-foreground: 270 15% 85%;
 
-    --muted: 210 20% 20%;
-    --muted-foreground: 195 15% 60%;
+    --muted: 270 14% 20%;
+    --muted-foreground: 270 12% 60%;
 
     --accent: 15 80% 60%;
-    --accent-foreground: 210 35% 10%;
+    --accent-foreground: 270 35% 10%;
 
     --destructive: 0 65% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 20% 22%;
-    --input: 210 20% 22%;
-    --ring: 175 55% 50%;
+    --border: 270 15% 22%;
+    --input: 270 15% 22%;
+    --ring: 270 55% 60%;
 
-    --sara-teal: 175 55% 50%;
-    --sara-teal-light: 175 40% 20%;
+    --sara-teal: 270 55% 60%;
+    --sara-teal-light: 270 35% 20%;
     --sara-coral: 15 80% 60%;
     --sara-coral-light: 15 70% 18%;
-    --sara-lavender: 260 45% 65%;
+    --sara-lavender: 260 50% 65%;
     --sara-lavender-light: 260 35% 20%;
     --sara-mint: 160 40% 50%;
     --sara-mint-light: 160 30% 18%;
     --sara-gold: 45 75% 50%;
     --sara-gold-light: 45 60% 18%;
-    --sara-navy: 210 35% 90%;
+    --sara-navy: 270 40% 90%;
 
-    --gradient-sara: linear-gradient(135deg, hsl(175 55% 50%) 0%, hsl(160 40% 50%) 100%);
+    --gradient-sara: linear-gradient(135deg, hsl(270 55% 60%) 0%, hsl(280 45% 55%) 100%);
     --gradient-coral: linear-gradient(135deg, hsl(15 80% 60%) 0%, hsl(35 75% 55%) 100%);
-    --gradient-soft: linear-gradient(180deg, hsl(210 35% 10%) 0%, hsl(210 30% 12%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(270 30% 10%) 0%, hsl(270 25% 12%) 100%);
 
     --shadow-sm: 0 2px 8px hsl(0 0% 0% / 0.2);
     --shadow-md: 0 4px 16px hsl(0 0% 0% / 0.3);
@@ -151,14 +151,11 @@
   }
 
   .sara-button {
-    @apply bg-primary text-primary-foreground rounded-xl px-4 py-2 font-semibold 
-           transition-all duration-300 hover:shadow-glow active:scale-95;
+    @apply bg-primary text-primary-foreground rounded-xl px-4 py-2 font-semibold transition-all duration-300 hover:shadow-glow active:scale-95;
   }
 
   .sara-input {
-    @apply bg-secondary/50 border border-border rounded-xl px-4 py-3 
-           focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary
-           transition-all duration-200;
+    @apply bg-secondary/50 border border-border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all duration-200;
   }
 
   .sara-badge {
@@ -212,18 +209,39 @@
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
   }
 
   @keyframes pulse-soft {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.7;
+    }
   }
 
   @keyframes slide-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .no-scrollbar::-webkit-scrollbar {
@@ -238,13 +256,13 @@
   /* ─── Landing: hero gradient mesh ─── */
   .hero-gradient {
     background:
-      radial-gradient(ellipse 60% 70% at 80% 30%, rgba(62,122,111,0.4) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 60% at 10% 80%, rgba(232,114,90,0.12) 0%, transparent 60%),
-      linear-gradient(145deg, #2d5c53 0%, #3D7A6F 45%, #4a9088 100%);
+      radial-gradient(ellipse 60% 70% at 80% 30%, rgba(92, 45, 145, 0.4) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 60% at 10% 80%, rgba(232, 114, 90, 0.12) 0%, transparent 60%),
+      linear-gradient(145deg, #2d5c53 0%, #5C2D91 45%, #4a9088 100%);
   }
 
   .hero-dots {
-    background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
     background-size: 28px 28px;
   }
 
@@ -257,10 +275,11 @@
   .btn-shimmer::after {
     content: '';
     position: absolute;
-    top: 0; left: -100%;
+    top: 0;
+    left: -100%;
     width: 60%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
     transform: skewX(-20deg);
   }
 
@@ -277,8 +296,8 @@
 
   .feature-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 48px rgba(62,122,111,0.14);
-    border-color: rgba(62,122,111,0.25);
+    box-shadow: 0 20px 48px rgba(92, 45, 145, 0.14);
+    border-color: rgba(92, 45, 145, 0.25);
   }
 
   /* ─── Landing: testimonial quote mark ─── */
@@ -292,15 +311,16 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 120px;
     line-height: 0;
-    color: #E8F5F2;
+    color: #EDE9FE;
     position: absolute;
-    top: 3rem; left: 1.5rem;
+    top: 3rem;
+    left: 1.5rem;
     pointer-events: none;
   }
 
   .test-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 24px 56px rgba(30,42,42,0.1);
+    box-shadow: 0 24px 56px rgba(30, 42, 42, 0.1);
   }
 
   /* ─── Landing: badge shimmer ─── */

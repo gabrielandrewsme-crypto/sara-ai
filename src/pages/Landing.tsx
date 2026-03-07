@@ -26,8 +26,8 @@ const features = [
       'Quebre tarefas complexas em mini-passos automáticos para evitar a paralisia por análise.',
     featured: false,
     iconBg: 'bg-white',
-    cardBg: 'bg-[#E8F5F2]',
-    iconColor: 'text-[#3D7A6F]',
+    cardBg: 'bg-[#EDE9FE]',
+    iconColor: 'text-[#5C2D91]',
   },
   {
     icon: Calendar,
@@ -35,9 +35,9 @@ const features = [
     description:
       'Bloqueio de tempo automático baseado nos seus períodos de maior hiperfoco e energia.',
     featured: false,
-    iconBg: 'bg-[#E8F5F2]',
+    iconBg: 'bg-[#EDE9FE]',
     cardBg: 'bg-white border border-slate-100',
-    iconColor: 'text-[#3D7A6F]',
+    iconColor: 'text-[#5C2D91]',
   },
   {
     icon: Wallet,
@@ -45,7 +45,7 @@ const features = [
     description:
       'Controle financeiro visual e simplificado para evitar gastos impulsivos e manter o orçamento em dia.',
     featured: false,
-    iconBg: 'bg-[#E8F5F2]',
+    iconBg: 'bg-[#EDE9FE]',
     cardBg: 'bg-white border border-slate-100',
     iconColor: 'text-[#E8725A]',
   },
@@ -56,8 +56,8 @@ const features = [
       'Sua assistente 24/7 via WhatsApp ou Web. Pergunte qualquer coisa, despeje seus pensamentos.',
     featured: false,
     iconBg: 'bg-white',
-    cardBg: 'bg-[#E8F5F2]',
-    iconColor: 'text-[#3D7A6F]',
+    cardBg: 'bg-[#EDE9FE]',
+    iconColor: 'text-[#5C2D91]',
   },
   {
     icon: Sparkles,
@@ -65,9 +65,9 @@ const features = [
     description:
       'Visualize ideias de forma não linear. Perfeito para quem pensa em conexões rápidas e visuais.',
     featured: false,
-    iconBg: 'bg-[#E8F5F2]',
+    iconBg: 'bg-[#EDE9FE]',
     cardBg: 'bg-white border border-slate-100',
-    iconColor: 'text-[#3D7A6F]',
+    iconColor: 'text-[#5C2D91]',
   },
 ];
 
@@ -76,8 +76,8 @@ const testimonials = [
     name: 'Ana C.',
     role: 'Designer Freelance',
     text: 'A Sara mudou completamente minha forma de lidar com a rotina. O que antes era caos agora tem uma estrutura que me permite respirar.',
-    color: 'bg-[#3D7A6F]/20 text-[#3D7A6F]',
-    ring: 'ring-[#3D7A6F]/30',
+    color: 'bg-[#5C2D91]/20 text-[#5C2D91]',
+    ring: 'ring-[#5C2D91]/30',
   },
   {
     name: 'Lucas M.',
@@ -90,8 +90,8 @@ const testimonials = [
     name: 'Mariana S.',
     role: 'Advogada',
     text: 'O modo de gestão de finanças foi o único que consegui manter por mais de um mês. A interface é simplesmente maravilhosa.',
-    color: 'bg-[#3D7A6F]/15 text-[#3D7A6F]',
-    ring: 'ring-[#3D7A6F]/25',
+    color: 'bg-[#5C2D91]/15 text-[#5C2D91]',
+    ring: 'ring-[#5C2D91]/25',
   },
 ];
 
@@ -152,13 +152,13 @@ const Landing: React.FC = () => {
       {/* ── Navbar ─────────────────────────────────────────────────── */}
       <nav
         ref={navRef}
-        className="sticky top-0 z-50 border-b border-[#E8F5F2] px-6 md:px-10 py-4
+        className="sticky top-0 z-50 border-b border-[#EDE9FE] px-6 md:px-10 py-4
                    bg-white/85 backdrop-blur-0 transition-all duration-300
                    [&.scrolled]:backdrop-blur-[16px] [&.scrolled]:shadow-[0_2px_24px_rgba(30,42,42,0.08)]"
       >
         <div className="max-w-[1440px] mx-auto flex items-center justify-between">
           <a href="#" className="flex items-center gap-2 group">
-            <div className="size-10 bg-[#3D7A6F] rounded-full flex items-center justify-center text-white
+            <div className="size-10 bg-[#5C2D91] rounded-full flex items-center justify-center text-white
                             shadow-md group-hover:scale-105 transition-transform">
               <Brain className="w-5 h-5" />
             </div>
@@ -170,7 +170,7 @@ const Landing: React.FC = () => {
               <a
                 key={id}
                 href={`#${id}`}
-                className="text-slate-500 hover:text-[#3D7A6F] font-medium transition-colors capitalize"
+                className="text-slate-500 hover:text-[#5C2D91] font-medium transition-colors capitalize"
               >
                 {id.charAt(0).toUpperCase() + id.slice(1)}
               </a>
@@ -278,8 +278,8 @@ const Landing: React.FC = () => {
           >
             <div className="rounded-2xl overflow-hidden shadow-[0_32px_80px_rgba(0,0,0,0.3)]
                             ring-1 ring-white/10 bg-white p-2">
-              <div className="rounded-xl bg-[#E8F5F2] aspect-video flex items-center justify-center">
-                <div className="flex flex-col items-center gap-3 text-[#3D7A6F]/60">
+              <div className="rounded-xl bg-[#EDE9FE] aspect-video flex items-center justify-center">
+                <div className="flex flex-col items-center gap-3 text-[#5C2D91]/60">
                   <Brain className="w-16 h-16" strokeWidth={1} />
                   <p className="text-sm font-semibold">Sara Dashboard Preview</p>
                 </div>
@@ -301,7 +301,7 @@ const Landing: React.FC = () => {
             {/* Floating widget — done */}
             <div className="absolute -top-5 -right-4 bg-white p-3.5 rounded-xl shadow-2xl
                             hidden md:flex items-center gap-3 border border-slate-100">
-              <div className="size-10 rounded-full bg-[#3D7A6F]/10 flex items-center justify-center text-[#3D7A6F]">
+              <div className="size-10 rounded-full bg-[#5C2D91]/10 flex items-center justify-center text-[#5C2D91]">
                 <CheckCircle2 className="w-5 h-5" />
               </div>
               <div>
@@ -320,7 +320,7 @@ const Landing: React.FC = () => {
             variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="inline-block bg-[#E8F5F2] text-[#3D7A6F] text-xs font-bold
+            <span className="inline-block bg-[#EDE9FE] text-[#5C2D91] text-xs font-bold
                              uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">
               Funcionalidades
             </span>
@@ -343,8 +343,8 @@ const Landing: React.FC = () => {
                 custom={i * 0.08}
                 className={`feature-card rounded-2xl p-8 flex flex-col gap-4
                   ${f.featured
-                    ? 'lg:col-span-2 bg-gradient-to-br from-[#3D7A6F] to-[#4a9088] text-white'
-                    : f.cardBg ?? 'bg-[#E8F5F2]'
+                    ? 'lg:col-span-2 bg-gradient-to-br from-[#5C2D91] to-[#4a9088] text-white'
+                    : f.cardBg ?? 'bg-[#EDE9FE]'
                   }`}
               >
                 <div className={`size-14 rounded-full flex items-center justify-center shadow-sm self-start
@@ -352,7 +352,7 @@ const Landing: React.FC = () => {
                   <f.icon className={`w-7 h-7 ${f.iconColor}`} />
                 </div>
                 <div>
-                  <h3 className={`text-xl font-extrabold mb-2 ${f.featured ? 'text-white' : 'text-[#3D7A6F]'}`}>
+                  <h3 className={`text-xl font-extrabold mb-2 ${f.featured ? 'text-white' : 'text-[#5C2D91]'}`}>
                     {f.title}
                   </h3>
                   <p className={`leading-relaxed ${f.featured ? 'text-white/80' : 'text-slate-600'}`}>
@@ -381,7 +381,7 @@ const Landing: React.FC = () => {
             variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="inline-block bg-[#E8F5F2] text-[#3D7A6F] text-xs font-bold
+            <span className="inline-block bg-[#EDE9FE] text-[#5C2D91] text-xs font-bold
                              uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">
               Depoimentos
             </span>
@@ -424,13 +424,13 @@ const Landing: React.FC = () => {
       </section>
 
       {/* ── Pricing ────────────────────────────────────────────────── */}
-      <section className="bg-[#E8F5F2] py-28 px-6 md:px-10" id="precos">
+      <section className="bg-[#EDE9FE] py-28 px-6 md:px-10" id="precos">
         <div className="max-w-[1440px] mx-auto flex flex-col items-center">
           <motion.div
             variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
             className="text-center mb-14"
           >
-            <span className="inline-block bg-white text-[#3D7A6F] text-xs font-bold
+            <span className="inline-block bg-white text-[#5C2D91] text-xs font-bold
                              uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 shadow-sm">
               Preços
             </span>
@@ -449,7 +449,7 @@ const Landing: React.FC = () => {
               {['A', 'L', 'M', '+'].map((l, i) => (
                 <div key={l} className={`size-8 rounded-full border-2 border-white flex items-center
                   justify-center text-white text-xs font-bold
-                  ${i === 0 ? 'bg-[#E8725A]/80' : i === 1 ? 'bg-[#3D7A6F]' : i === 2 ? 'bg-[#1E2A2A]' : 'bg-slate-400'}`}>
+                  ${i === 0 ? 'bg-[#E8725A]/80' : i === 1 ? 'bg-[#5C2D91]' : i === 2 ? 'bg-[#1E2A2A]' : 'bg-slate-400'}`}>
                   {l}
                 </div>
               ))}
@@ -513,7 +513,7 @@ const Landing: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pb-12 border-b border-white/10">
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-2">
-                <div className="size-9 bg-[#3D7A6F] rounded-full flex items-center justify-center text-white">
+                <div className="size-9 bg-[#5C2D91] rounded-full flex items-center justify-center text-white">
                   <Brain className="w-4 h-4" />
                 </div>
                 <span className="text-white text-xl font-extrabold">Sara</span>

@@ -9,7 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 // ─── Design tokens ────────────────────────────────────────────────────────────
-const PRIMARY = '#3D7A6F';
+const PRIMARY = '#5C2D91';
 const CORAL = '#E8725A';
 const GOLD = '#E8B725';
 
@@ -49,23 +49,23 @@ const RoutineTab: React.FC = () => {
     <div className="space-y-4">
       {/* Progress bar header */}
       {sortedItems.length > 0 && (
-        <div className="bg-[#E8F5F2] rounded-2xl p-4 flex items-center gap-4">
+        <div className="bg-[#EDE9FE] rounded-2xl p-4 flex items-center gap-4">
           <div className="flex-1">
             <div className="flex justify-between text-sm mb-1.5">
               <span className="font-semibold text-[#1E2A2A]">Progresso de hoje</span>
-              <span className="font-bold text-[#3D7A6F]">{completedCount}/{sortedItems.length}</span>
+              <span className="font-bold text-[#5C2D91]">{completedCount}/{sortedItems.length}</span>
             </div>
             <div className="h-2 bg-white rounded-full overflow-hidden">
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
                 transition={{ duration: 1 }}
-                className="h-full bg-[#3D7A6F] rounded-full"
+                className="h-full bg-[#5C2D91] rounded-full"
               />
             </div>
           </div>
           <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0">
-            <span className="text-lg font-extrabold text-[#3D7A6F]">{progress}%</span>
+            <span className="text-lg font-extrabold text-[#5C2D91]">{progress}%</span>
           </div>
         </div>
       )}
@@ -89,9 +89,9 @@ const RoutineTab: React.FC = () => {
             >
               <button
                 onClick={() => toggleRoutineItem(item.id)}
-                className={`w-7 h-7 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all ${completed ? 'bg-[#3D7A6F] border-[#3D7A6F]'
+                className={`w-7 h-7 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all ${completed ? 'bg-[#5C2D91] border-[#5C2D91]'
                     : overdue ? 'border-[#E8725A]'
-                      : 'border-slate-300 hover:border-[#3D7A6F]'
+                      : 'border-slate-300 hover:border-[#5C2D91]'
                   }`}
               >
                 {completed && <Check className="w-3.5 h-3.5 text-white" />}
@@ -120,8 +120,8 @@ const RoutineTab: React.FC = () => {
 
       {sortedItems.length === 0 && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-16">
-          <div className="w-16 h-16 bg-[#E8F5F2] rounded-2xl flex items-center justify-center mx-auto mb-3">
-            <RotateCcw className="w-8 h-8 text-[#3D7A6F]" />
+          <div className="w-16 h-16 bg-[#EDE9FE] rounded-2xl flex items-center justify-center mx-auto mb-3">
+            <RotateCcw className="w-8 h-8 text-[#5C2D91]" />
           </div>
           <p className="font-semibold text-[#1E2A2A]">Nenhuma rotina ainda</p>
           <p className="text-xs text-slate-400 mt-1">Adicione tarefas que repetem todo dia</p>
@@ -132,8 +132,8 @@ const RoutineTab: React.FC = () => {
         <DialogTrigger asChild>
           <motion.button
             whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-            className="fixed bottom-24 right-4 w-14 h-14 bg-[#3D7A6F] rounded-full
-                       shadow-[0_8px_24px_rgba(62,122,111,0.4)] flex items-center justify-center z-30"
+            className="fixed bottom-24 right-4 w-14 h-14 bg-[#5C2D91] rounded-full
+                       shadow-[0_8px_24px_rgba(92,45,145,0.4)] flex items-center justify-center z-30"
           >
             <Plus className="w-6 h-6 text-white" />
           </motion.button>
@@ -152,7 +152,7 @@ const RoutineTab: React.FC = () => {
               <Input id="routine-time" type="time" value={newItem.time}
                 onChange={(e) => setNewItem({ ...newItem, time: e.target.value })} className="mt-1" />
             </div>
-            <Button type="submit" className="w-full bg-[#3D7A6F] hover:bg-[#3D7A6F]/90 text-white">
+            <Button type="submit" className="w-full bg-[#5C2D91] hover:bg-[#5C2D91]/90 text-white">
               Adicionar à Rotina
             </Button>
           </form>
@@ -250,7 +250,7 @@ const RemindersTab: React.FC = () => {
             <motion.div key={reminder.id}
               className="bg-white rounded-2xl p-3.5 flex items-start gap-3 opacity-50 border border-slate-100 mb-2">
               <button onClick={() => toggleReminder(reminder.id)}
-                className="w-7 h-7 rounded-full border-2 bg-[#3D7A6F] border-[#3D7A6F] flex items-center justify-center flex-shrink-0 mt-0.5">
+                className="w-7 h-7 rounded-full border-2 bg-[#5C2D91] border-[#5C2D91] flex items-center justify-center flex-shrink-0 mt-0.5">
                 <Check className="w-3.5 h-3.5 text-white" />
               </button>
               <p className="font-semibold text-sm text-slate-400 line-through flex-1">{reminder.title}</p>
@@ -329,7 +329,7 @@ export const Tasks: React.FC = () => {
         <TabsList className="w-full mb-5 bg-slate-100 p-1 rounded-2xl h-auto">
           <TabsTrigger value="rotina"
             className="flex-1 gap-1.5 rounded-xl py-2.5 font-semibold text-sm
-                       data-[state=active]:bg-white data-[state=active]:text-[#3D7A6F] data-[state=active]:shadow-sm">
+                       data-[state=active]:bg-white data-[state=active]:text-[#5C2D91] data-[state=active]:shadow-sm">
             <RotateCcw className="w-4 h-4" />
             Rotina
           </TabsTrigger>

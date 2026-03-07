@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Settings, Moon, Sun, ArrowLeft } from 'lucide-react';
 import { useSara } from '@/contexts/SaraContext';
 import { Button } from '@/components/ui/button';
-import saraLogo from '@/assets/sara-logo.jpeg';
+import { SaraLogo } from '@/components/SaraLogo';
 
 interface HeaderProps {
   title?: string;
@@ -46,7 +46,7 @@ export const Header: React.FC<HeaderProps> = ({ title, showBack }) => {
               </Button>
             )}
             <div className="shrink-0">
-              <img src={saraLogo} alt="Sara" className="w-10 h-10 rounded-xl object-cover" />
+              <SaraLogo size={40} />
             </div>
             <div>
               <motion.h1

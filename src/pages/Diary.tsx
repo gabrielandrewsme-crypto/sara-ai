@@ -11,7 +11,7 @@ import type { DiaryEntry } from '@/types/sara';
 
 // ─── Mood config ──────────────────────────────────────────────────────────────
 const MOODS = [
-  { value: 'great' as const, icon: Heart, label: 'Ótimo', bg: 'bg-[#E8F5F2]', text: 'text-[#3D7A6F]', bar: 'bg-[#3D7A6F]', border: 'border-[#3D7A6F]/20' },
+  { value: 'great' as const, icon: Heart, label: 'Ótimo', bg: 'bg-[#EDE9FE]', text: 'text-[#5C2D91]', bar: 'bg-[#5C2D91]', border: 'border-[#5C2D91]/20' },
   { value: 'good' as const, icon: Smile, label: 'Bem', bg: 'bg-[#EEF3FE]', text: 'text-[#5B7BE8]', bar: 'bg-[#5B7BE8]', border: 'border-[#5B7BE8]/20' },
   { value: 'neutral' as const, icon: Meh, label: 'Normal', bg: 'bg-[#FEFBEE]', text: 'text-[#E8B725]', bar: 'bg-[#E8B725]', border: 'border-[#E8B725]/20' },
   { value: 'bad' as const, icon: Frown, label: 'Ruim', bg: 'bg-[#FEF3EE]', text: 'text-[#E8725A]', bar: 'bg-[#E8725A]', border: 'border-[#E8725A]/20' },

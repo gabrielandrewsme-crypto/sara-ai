@@ -112,8 +112,8 @@ export const Settings: React.FC = () => {
         className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 flex items-center gap-4"
       >
         {/* Avatar */}
-        <div className="w-16 h-16 rounded-2xl bg-[#E8F5F2] flex items-center justify-center flex-shrink-0">
-          <span className="text-2xl font-extrabold text-[#3D7A6F]">{initials || '👤'}</span>
+        <div className="w-16 h-16 rounded-2xl bg-[#EDE9FE] flex items-center justify-center flex-shrink-0">
+          <span className="text-2xl font-extrabold text-[#5C2D91]">{initials || '👤'}</span>
         </div>
 
         <div className="flex-1 min-w-0">
@@ -123,8 +123,8 @@ export const Settings: React.FC = () => {
 
         <Dialog open={isNameOpen} onOpenChange={setIsNameOpen}>
           <DialogTrigger asChild>
-            <button className="w-9 h-9 bg-[#E8F5F2] rounded-xl flex items-center justify-center flex-shrink-0 hover:bg-[#d4ede8] transition-colors">
-              <Pencil className="w-4 h-4 text-[#3D7A6F]" />
+            <button className="w-9 h-9 bg-[#EDE9FE] rounded-xl flex items-center justify-center flex-shrink-0 hover:bg-[#d4ede8] transition-colors">
+              <Pencil className="w-4 h-4 text-[#5C2D91]" />
             </button>
           </DialogTrigger>
           <DialogContent>
@@ -137,7 +137,7 @@ export const Settings: React.FC = () => {
                   placeholder="Como você quer ser chamada?" className="mt-1"
                   onKeyDown={(e) => e.key === 'Enter' && handleNameSave()} />
               </div>
-              <Button onClick={handleNameSave} className="w-full bg-[#3D7A6F] hover:bg-[#3D7A6F]/90 text-white">
+              <Button onClick={handleNameSave} className="w-full bg-[#5C2D91] hover:bg-[#5C2D91]/90 text-white">
                 Salvar
               </Button>
             </div>
@@ -149,7 +149,7 @@ export const Settings: React.FC = () => {
       <Section title="Conexão" delay={0.05}>
         <Row
           icon={<MessageSquare className="w-5 h-5 text-[#25D366]" />}
-          iconBg="bg-[#E8F5F2]"
+          iconBg="bg-[#EDE9FE]"
           label="Falar com a Sara"
           sub="Abre o WhatsApp para conversar"
           onClick={() => window.open('https://wa.me/5511999999999?text=Oi+Sara!', '_blank')}
@@ -185,8 +185,8 @@ export const Settings: React.FC = () => {
         <Section title="Notificações" delay={0.15}>
           {permission === 'granted' && (
             <Row
-              icon={<BellRing className="w-5 h-5 text-[#3D7A6F]" />}
-              iconBg="bg-[#E8F5F2]"
+              icon={<BellRing className="w-5 h-5 text-[#5C2D91]" />}
+              iconBg="bg-[#EDE9FE]"
               label="Notificações ativas ✅"
               sub="Você receberá alertas da rotina e agenda"
             />
@@ -222,7 +222,7 @@ export const Settings: React.FC = () => {
       {/* ── Notification Types ────────────────────────────────────── */}
       <Section title="Tipos de alerta" delay={0.2}>
         {[
-          { key: 'tasks' as const, icon: <RotateCcw className="w-5 h-5 text-[#3D7A6F]" />, bg: 'bg-[#E8F5F2]', label: 'Rotina', sub: 'Tarefas diárias e lembretes' },
+          { key: 'tasks' as const, icon: <RotateCcw className="w-5 h-5 text-[#5C2D91]" />, bg: 'bg-[#EDE9FE]', label: 'Rotina', sub: 'Tarefas diárias e lembretes' },
           { key: 'events' as const, icon: <CalendarDays className="w-5 h-5 text-[#E8725A]" />, bg: 'bg-[#FEF3EE]', label: 'Eventos', sub: 'Alertas da agenda' },
           { key: 'financial' as const, icon: <Bell className="w-5 h-5 text-[#E8B725]" />, bg: 'bg-[#FEFBEE]', label: 'Finanças', sub: 'Alertas de gastos' },
         ].map(({ key, icon, bg, label, sub }) => (
@@ -280,7 +280,7 @@ export const Settings: React.FC = () => {
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
         className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 text-center"
       >
-        <div className="w-14 h-14 bg-[#E8F5F2] rounded-2xl flex items-center justify-center mx-auto mb-3">
+        <div className="w-14 h-14 bg-[#EDE9FE] rounded-2xl flex items-center justify-center mx-auto mb-3">
           <Heart className="w-7 h-7 text-[#E8725A]" />
         </div>
         <h3 className="font-extrabold text-[#1E2A2A]">Sara AI</h3>

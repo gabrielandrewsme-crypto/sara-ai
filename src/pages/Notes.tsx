@@ -10,7 +10,7 @@ import { Textarea } from '@/components/ui/textarea';
 
 // ─── Color palette ────────────────────────────────────────────────────────────
 const NOTE_PALETTES = [
-  { bg: 'bg-[#E8F5F2]', border: 'border-[#3D7A6F]/15', accent: '#3D7A6F', dot: 'bg-[#3D7A6F]' },
+  { bg: 'bg-[#EDE9FE]', border: 'border-[#5C2D91]/15', accent: '#5C2D91', dot: 'bg-[#5C2D91]' },
   { bg: 'bg-[#FEF3EE]', border: 'border-[#E8725A]/15', accent: '#E8725A', dot: 'bg-[#E8725A]' },
   { bg: 'bg-[#EEF3FE]', border: 'border-[#5B7BE8]/15', accent: '#5B7BE8', dot: 'bg-[#5B7BE8]' },
   { bg: 'bg-[#FEFBEE]', border: 'border-[#E8B725]/15', accent: '#E8B725', dot: 'bg-[#E8B725]' },

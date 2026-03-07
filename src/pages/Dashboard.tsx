@@ -121,11 +121,11 @@ export const Dashboard: React.FC = () => {
         className="grid grid-cols-2 gap-4"
       >
         {/* Tasks card */}
-        <div className="bg-[#E8F5F2] p-5 rounded-2xl flex flex-col gap-2 border border-[#3D7A6F]/10
+        <div className="bg-[#EDE9FE] p-5 rounded-2xl flex flex-col gap-2 border border-[#5C2D91]/10
                         shadow-sm relative overflow-hidden">
           <div className="flex items-center gap-2">
-            <CheckSquare className="w-4 h-4 text-[#3D7A6F]" />
-            <span className="text-[#3D7A6F] text-xs font-bold uppercase tracking-wide">Tarefas Hoje</span>
+            <CheckSquare className="w-4 h-4 text-[#5C2D91]" />
+            <span className="text-[#5C2D91] text-xs font-bold uppercase tracking-wide">Tarefas Hoje</span>
           </div>
           <p className="text-[#1E2A2A] text-3xl font-extrabold">
             {completedToday}<span className="text-slate-300 font-normal text-lg">/{todayTasks.length}</span>
@@ -136,7 +136,7 @@ export const Dashboard: React.FC = () => {
               initial={{ width: 0 }}
               animate={{ width: `${progress}%` }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="h-full bg-[#3D7A6F] rounded-full"
+              className="h-full bg-[#5C2D91] rounded-full"
             />
           </div>
           <p className="text-xs text-slate-400">{progress}% concluídas</p>
@@ -148,10 +148,10 @@ export const Dashboard: React.FC = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               {positive
-                ? <TrendingUp className="w-4 h-4 text-[#3D7A6F]" />
+                ? <TrendingUp className="w-4 h-4 text-[#5C2D91]" />
                 : <TrendingDown className="w-4 h-4 text-[#E8725A]" />}
               <span className={`text-xs font-bold uppercase tracking-wide
-                ${positive ? 'text-[#3D7A6F]' : 'text-[#E8725A]'}`}>Saldo</span>
+                ${positive ? 'text-[#5C2D91]' : 'text-[#E8725A]'}`}>Saldo</span>
             </div>
             <button
               onClick={() => setShowBalance(!showBalance)}
@@ -178,7 +178,7 @@ export const Dashboard: React.FC = () => {
         <div className="grid grid-cols-2 gap-4">
           <QuickAction
             icon={CheckSquare} label="Rotina"
-            bg="bg-[#E8F5F2]" iconBg="bg-white" iconColor="text-[#3D7A6F]"
+            bg="bg-[#EDE9FE]" iconBg="bg-white" iconColor="text-[#5C2D91]"
             onClick={() => navigate('/tasks')}
           />
           <QuickAction
@@ -210,7 +210,7 @@ export const Dashboard: React.FC = () => {
             className="w-full bg-white p-4 rounded-2xl border border-slate-100 shadow-sm
                        flex items-center gap-4 text-left hover:shadow-md transition-shadow group"
           >
-            <div className="w-1 h-12 bg-[#3D7A6F] rounded-full flex-shrink-0" />
+            <div className="w-1 h-12 bg-[#5C2D91] rounded-full flex-shrink-0" />
             <div className="flex-1 min-w-0">
               <p className="font-bold text-[#1E2A2A] truncate">{nextEvent.title}</p>
               <p className="text-sm text-slate-400">
@@ -219,11 +219,11 @@ export const Dashboard: React.FC = () => {
               </p>
             </div>
             {minutesUntil !== null && minutesUntil <= 60 && minutesUntil > 0 && (
-              <span className="bg-[#E8F5F2] text-[#3D7A6F] text-xs font-bold px-2.5 py-1 rounded-full flex-shrink-0">
+              <span className="bg-[#EDE9FE] text-[#5C2D91] text-xs font-bold px-2.5 py-1 rounded-full flex-shrink-0">
                 Em {minutesUntil}min
               </span>
             )}
-            <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-[#3D7A6F] transition-colors" />
+            <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-[#5C2D91] transition-colors" />
           </button>
         </motion.section>
       )}
@@ -236,7 +236,7 @@ export const Dashboard: React.FC = () => {
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-[#1E2A2A] font-bold text-base">Pendências</h2>
             <Button variant="ghost" size="sm" onClick={() => navigate('/tasks')}
-              className="text-[#3D7A6F] hover:text-[#3D7A6F] hover:bg-[#E8F5F2] text-xs h-7 px-3">
+              className="text-[#5C2D91] hover:text-[#5C2D91] hover:bg-[#EDE9FE] text-xs h-7 px-3">
               Ver todas
             </Button>
           </div>
@@ -250,7 +250,7 @@ export const Dashboard: React.FC = () => {
                 className="bg-white p-3.5 rounded-xl border border-slate-100 flex items-center gap-3"
               >
                 <div className={`w-2 h-2 rounded-full flex-shrink-0 ${task.priority === 'high' ? 'bg-[#E8725A]' :
-                  task.priority === 'medium' ? 'bg-[#E8B725]' : 'bg-[#3D7A6F]'
+                  task.priority === 'medium' ? 'bg-[#E8B725]' : 'bg-[#5C2D91]'
                   }`} />
                 <div className="flex-1 min-w-0">
                   <p className="font-semibold text-[#1E2A2A] text-sm truncate">{task.title}</p>
@@ -260,7 +260,7 @@ export const Dashboard: React.FC = () => {
                 </div>
                 <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${task.priority === 'high' ? 'bg-[#E8725A]/10 text-[#E8725A]' :
                   task.priority === 'medium' ? 'bg-[#E8B725]/10 text-[#E8B725]' :
-                    'bg-[#3D7A6F]/10 text-[#3D7A6F]'
+                    'bg-[#5C2D91]/10 text-[#5C2D91]'
                   }`}>
                   {task.priority === 'high' ? 'Alta' : task.priority === 'medium' ? 'Média' : 'Baixa'}
                 </span>

@@ -15,7 +15,7 @@ const MONTHS = [
 ];
 
 const EVENT_PALETTES = [
-  { bg: 'bg-[#3D7A6F]', light: 'bg-[#E8F5F2]', text: 'text-[#3D7A6F]', dot: '#3D7A6F' },
+  { bg: 'bg-[#5C2D91]', light: 'bg-[#EDE9FE]', text: 'text-[#5C2D91]', dot: '#5C2D91' },
   { bg: 'bg-[#E8725A]', light: 'bg-[#FEF3EE]', text: 'text-[#E8725A]', dot: '#E8725A' },
   { bg: 'bg-[#5B7BE8]', light: 'bg-[#EEF3FE]', text: 'text-[#5B7BE8]', dot: '#5B7BE8' },
   { bg: 'bg-[#E8B725]', light: 'bg-[#FEFBEE]', text: 'text-[#E8B725]', dot: '#E8B725' },
@@ -142,9 +142,9 @@ export const CalendarPage: React.FC = () => {
                 onClick={() => setSelectedDate(dateStr)}
                 className={`aspect-square rounded-xl flex flex-col items-center justify-center relative transition-all text-sm font-medium
                   ${isSelected
-                    ? 'bg-[#3D7A6F] text-white'
+                    ? 'bg-[#5C2D91] text-white'
                     : isToday
-                      ? 'bg-[#E8F5F2] text-[#3D7A6F] font-extrabold'
+                      ? 'bg-[#EDE9FE] text-[#5C2D91] font-extrabold'
                       : 'text-[#1E2A2A] hover:bg-slate-50'
                   }`}
               >

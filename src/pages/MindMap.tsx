@@ -10,7 +10,7 @@ import { MindMapNode } from '@/types/sara';
 
 // ─── Design tokens ────────────────────────────────────────────────────────────
 const PALETTES = [
-  { fill: '#3D7A6F', light: '#E8F5F2', text: '#fff' },
+  { fill: '#5C2D91', light: '#EDE9FE', text: '#fff' },
   { fill: '#E8725A', light: '#FEF3EE', text: '#fff' },
   { fill: '#5B7BE8', light: '#EEF3FE', text: '#fff' },
   { fill: '#E8B725', light: '#FEFBEE', text: '#fff' },

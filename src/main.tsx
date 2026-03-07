@@ -44,7 +44,7 @@ class ErrorBoundary extends React.Component<
                         onClick={() => window.location.reload()}
                         style={{
                             marginTop: 24,
-                            background: "#3D7A6F",
+                            background: "#5C2D91",
                             color: "white",
                             border: "none",
                             borderRadius: 999,

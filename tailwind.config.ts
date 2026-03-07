@@ -64,12 +64,12 @@ export default {
           navy: "hsl(var(--sara-navy))",
         },
         // Landing design tokens
-        "deep-sage": "#3D7A6F",
-        "deep-sage-dark": "#2d5c53",
+        "deep-sage": "#5C2D91",
+        "deep-sage-dark": "#4a2275",
         coral: "#E8725A",
         "coral-dark": "#d45f47",
-        mint: "#E8F5F2",
-        charcoal: "#1E2A2A",
+        mint: "#EDE9FE",
+        charcoal: "#1E0A3D",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -123,8 +123,8 @@ export default {
           "100%": { backgroundPosition: "200% 50%" },
         },
         "glow-pulse": {
-          "0%, 100%": { boxShadow: "0 0 20px rgba(62,122,111,0.15)" },
-          "50%": { boxShadow: "0 0 48px rgba(62,122,111,0.45)" },
+          "0%, 100%": { boxShadow: "0 0 20px rgba(92,45,145,0.15)" },
+          "50%": { boxShadow: "0 0 48px rgba(92,45,145,0.45)" },
         },
         "pulse-dot": {
           "0%, 100%": { opacity: "1", transform: "scale(1)" },

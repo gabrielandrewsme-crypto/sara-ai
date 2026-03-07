@@ -161,9 +161,9 @@ export const Finances: React.FC = () => {
       {/* Summary Cards */}
       <div className="grid grid-cols-3 gap-3">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-          className="bg-[#E8F5F2] p-4 rounded-2xl border border-[#3D7A6F]/10">
-          <TrendingUp className="w-5 h-5 text-[#3D7A6F] mb-2" />
-          <p className="text-[10px] font-bold text-[#3D7A6F] uppercase tracking-wide">Ganhos</p>
+          className="bg-[#EDE9FE] p-4 rounded-2xl border border-[#5C2D91]/10">
+          <TrendingUp className="w-5 h-5 text-[#5C2D91] mb-2" />
+          <p className="text-[10px] font-bold text-[#5C2D91] uppercase tracking-wide">Ganhos</p>
           <p className="text-base font-extrabold text-[#1E2A2A] mt-0.5 leading-tight">
             R$ {totalIncome.toLocaleString('pt-BR', { minimumFractionDigits: 0 })}
           </p>
@@ -180,8 +180,8 @@ export const Finances: React.FC = () => {
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
           className={`p-4 rounded-2xl border ${balance >= 0 ? 'bg-white border-slate-100' : 'bg-[#E8725A]/5 border-[#E8725A]/15'}`}>
-          <Wallet className={`w-5 h-5 mb-2 ${balance >= 0 ? 'text-[#3D7A6F]' : 'text-[#E8725A]'}`} />
-          <p className={`text-[10px] font-bold uppercase tracking-wide ${balance >= 0 ? 'text-[#3D7A6F]' : 'text-[#E8725A]'}`}>Saldo</p>
+          <Wallet className={`w-5 h-5 mb-2 ${balance >= 0 ? 'text-[#5C2D91]' : 'text-[#E8725A]'}`} />
+          <p className={`text-[10px] font-bold uppercase tracking-wide ${balance >= 0 ? 'text-[#5C2D91]' : 'text-[#E8725A]'}`}>Saldo</p>
           <p className={`text-base font-extrabold mt-0.5 leading-tight ${balance >= 0 ? 'text-[#1E2A2A]' : 'text-[#E8725A]'}`}>
             R$ {Math.abs(balance).toLocaleString('pt-BR', { minimumFractionDigits: 0 })}
           </p>
@@ -530,7 +530,7 @@ export const Finances: React.FC = () => {
                 className="bg-white rounded-2xl p-4 flex items-center gap-3 border border-slate-100 shadow-sm"
               >
                 <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${transaction.type === 'income'
-                    ? 'bg-[#E8F5F2] text-[#3D7A6F]'
+                    ? 'bg-[#EDE9FE] text-[#5C2D91]'
                     : 'bg-[#FEF3EE] text-[#E8725A]'
                   }`}>
                   {transaction.type === 'income'
@@ -553,7 +553,7 @@ export const Finances: React.FC = () => {
                 </div>
 
                 <div className="text-right">
-                  <p className={`font-bold text-sm ${transaction.type === 'income' ? 'text-[#3D7A6F]' : 'text-[#E8725A]'
+                  <p className={`font-bold text-sm ${transaction.type === 'income' ? 'text-[#5C2D91]' : 'text-[#E8725A]'
                     }`}>
                     {transaction.type === 'income' ? '+' : '-'} R$ {transaction.amount.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                   </p>
@@ -570,8 +570,8 @@ export const Finances: React.FC = () => {
 
           {transactions.length === 0 && (
             <div className="text-center py-12">
-              <div className="w-16 h-16 bg-[#E8F5F2] rounded-2xl flex items-center justify-center mx-auto mb-3">
-                <Wallet className="w-8 h-8 text-[#3D7A6F]" />
+              <div className="w-16 h-16 bg-[#EDE9FE] rounded-2xl flex items-center justify-center mx-auto mb-3">
+                <Wallet className="w-8 h-8 text-[#5C2D91]" />
               </div>
               <p className="font-semibold text-[#1E2A2A]">Nenhuma transação</p>
               <p className="text-xs text-slate-400 mt-1">Adicione sua primeira transação</p>
@@ -585,8 +585,8 @@ export const Finances: React.FC = () => {
         <DialogTrigger asChild>
           <motion.button
             whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-            className="fixed bottom-24 right-4 w-14 h-14 bg-[#3D7A6F] rounded-full
-                       shadow-[0_8px_24px_rgba(62,122,111,0.4)] flex items-center justify-center"
+            className="fixed bottom-24 right-4 w-14 h-14 bg-[#5C2D91] rounded-full
+                       shadow-[0_8px_24px_rgba(92,45,145,0.4)] flex items-center justify-center"
           >
             <Plus className="w-6 h-6 text-white" />
           </motion.button>
