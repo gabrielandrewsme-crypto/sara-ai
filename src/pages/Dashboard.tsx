@@ -9,11 +9,10 @@ import {
   Brain,
   TrendingUp,
   TrendingDown,
-  Sparkles,
   Eye,
   EyeOff,
-  Mic,
-  ArrowRight,
+  MessageSquare,
+  ExternalLink,
   Clock,
   ChevronRight,
 } from 'lucide-react';
@@ -251,7 +250,7 @@ export const Dashboard: React.FC = () => {
                 className="bg-white p-3.5 rounded-xl border border-slate-100 flex items-center gap-3"
               >
                 <div className={`w-2 h-2 rounded-full flex-shrink-0 ${task.priority === 'high' ? 'bg-[#E8725A]' :
-                    task.priority === 'medium' ? 'bg-[#E8B725]' : 'bg-[#3D7A6F]'
+                  task.priority === 'medium' ? 'bg-[#E8B725]' : 'bg-[#3D7A6F]'
                   }`} />
                 <div className="flex-1 min-w-0">
                   <p className="font-semibold text-[#1E2A2A] text-sm truncate">{task.title}</p>
@@ -260,8 +259,8 @@ export const Dashboard: React.FC = () => {
                   </p>}
                 </div>
                 <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${task.priority === 'high' ? 'bg-[#E8725A]/10 text-[#E8725A]' :
-                    task.priority === 'medium' ? 'bg-[#E8B725]/10 text-[#E8B725]' :
-                      'bg-[#3D7A6F]/10 text-[#3D7A6F]'
+                  task.priority === 'medium' ? 'bg-[#E8B725]/10 text-[#E8B725]' :
+                    'bg-[#3D7A6F]/10 text-[#3D7A6F]'
                   }`}>
                   {task.priority === 'high' ? 'Alta' : task.priority === 'medium' ? 'Média' : 'Baixa'}
                 </span>
@@ -271,42 +270,32 @@ export const Dashboard: React.FC = () => {
         </motion.section>
       )}
 
-      {/* ── Sara CTA ─────────────────────────────────────────────── */}
+      {/* ── WhatsApp CTA ─────────────────────────────────────────── */}
       <motion.section
         variants={fadeUp} initial="hidden" animate="visible" custom={0.25}
       >
-        <button
-          onClick={() => navigate('/sara')}
-          className="w-full bg-gradient-to-br from-[#3D7A6F] to-[#4a9088] p-5 rounded-2xl
+        <a
+          href="https://wa.me/?text=Olá Sara!"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full bg-gradient-to-br from-[#25D366] to-[#1da851] p-5 rounded-2xl
                      flex items-center gap-4 group hover:brightness-110 transition-all
-                     shadow-[0_8px_32px_rgba(62,122,111,0.3)] hover:shadow-[0_12px_40px_rgba(62,122,111,0.4)]"
+                     shadow-[0_8px_32px_rgba(37,211,102,0.3)] hover:shadow-[0_12px_40px_rgba(37,211,102,0.4)]"
         >
           <div className="w-14 h-14 bg-white/15 backdrop-blur rounded-xl flex items-center justify-center flex-shrink-0">
-            <Sparkles className="w-7 h-7 text-white" />
+            <MessageSquare className="w-7 h-7 text-white" />
           </div>
           <div className="flex-1 text-left">
-            <p className="font-extrabold text-white text-lg">Fale com a Sara</p>
-            <p className="text-sm text-white/80">Sua assistente pessoal para TDAH</p>
+            <p className="font-extrabold text-white text-lg">Envie um comando à Sara</p>
+            <p className="text-sm text-white/85">Fale com a Sara pelo WhatsApp</p>
           </div>
-          <ArrowRight className="w-5 h-5 text-white/70 group-hover:translate-x-1 transition-transform" />
-        </button>
+          <ExternalLink className="w-5 h-5 text-white/70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+        </a>
+        <p className="text-center text-xs text-slate-400 mt-2">
+          Ex: "coloca na agenda reunião com Renato dia 15 às 14h"
+        </p>
       </motion.section>
 
-      {/* ── Floating Mic ─────────────────────────────────────────── */}
-      <motion.button
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5, type: 'spring', stiffness: 200 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        onClick={() => navigate('/sara?mic=true')}
-        className="fixed bottom-24 right-4 w-14 h-14 bg-[#E8725A] rounded-full
-                   shadow-[0_8px_24px_rgba(232,114,90,0.5)] flex items-center justify-center z-40
-                   hover:brightness-110 transition-all"
-        aria-label="Falar com a Sara"
-      >
-        <Mic className="w-6 h-6 text-white" />
-      </motion.button>
     </div>
   );
 };

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Home, 
-  CheckSquare, 
-  Calendar, 
-  Wallet, 
+import {
+  Home,
+  CheckSquare,
+  Calendar,
+  Wallet,
   MessageCircle,
   StickyNote,
   Brain,
@@ -15,14 +15,13 @@ import {
 } from 'lucide-react';
 
 const mainItems = [
-  { path: '/', icon: Home, label: 'Início' },
+  { path: '/dashboard', icon: Home, label: 'Início' },
   { path: '/tasks', icon: CheckSquare, label: 'Rotina' },
   { path: '/calendar', icon: Calendar, label: 'Agenda' },
   { path: '/finances', icon: Wallet, label: 'Finanças' },
 ];
 
 const moreItems = [
-  { path: '/sara', icon: MessageCircle, label: 'Sara' },
   { path: '/notes', icon: StickyNote, label: 'Notas' },
   { path: '/diary', icon: BookHeart, label: 'Diário' },
   { path: '/mindmap', icon: Brain, label: 'Mapa Mental' },

@@ -16,7 +16,6 @@ import Finances from "./pages/Finances";
 import Notes from "./pages/Notes";
 import MindMap from "./pages/MindMap";
 import Diary from "./pages/Diary";
-import SaraChat from "./pages/SaraChat";
 import Settings from "./pages/Settings";
 import AdminClients from "./pages/AdminClients";
 import Auth from "./pages/Auth";
@@ -60,7 +59,6 @@ const App = () => (
                 <Route path="/notes" element={<Notes />} />
                 <Route path="/mindmap" element={<MindMap />} />
                 <Route path="/diary" element={<Diary />} />
-                <Route path="/sara" element={<SaraChat />} />
                 <Route path="/settings" element={<Settings />} />
               </Route>
 

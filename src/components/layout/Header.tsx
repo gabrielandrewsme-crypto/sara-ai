@@ -12,24 +12,23 @@ interface HeaderProps {
 }
 
 const pageNames: Record<string, string> = {
-  '/': 'Olá',
+  '/dashboard': 'Início',
   '/tasks': 'Rotina',
   '/calendar': 'Agenda',
   '/finances': 'Finanças',
   '/notes': 'Notas',
   '/mindmap': 'Mapa Mental',
-  '/sara': 'Sara',
   '/settings': 'Configurações',
+  '/diary': 'Diário',
 };
 
 export const Header: React.FC<HeaderProps> = ({ title, showBack }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { user, theme, toggleTheme } = useSara();
-  const isSaraChat = location.pathname === '/sara';
+  const { theme, toggleTheme } = useSara();
 
   const currentTitle = title || pageNames[location.pathname] || 'Sara';
-  const isHome = location.pathname === '/';
+  const isHome = location.pathname === '/dashboard';
 
   return (
     <>
@@ -50,25 +49,25 @@ export const Header: React.FC<HeaderProps> = ({ title, showBack }) => {
               <img src={saraLogo} alt="Sara" className="w-10 h-10 rounded-xl object-cover" />
             </div>
             <div>
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="text-xl font-bold text-foreground"
               >
-                {isHome ? `${currentTitle}, ${user.name}! 👋` : currentTitle}
+                {currentTitle}
               </motion.h1>
               {isHome && (
                 <p className="text-sm text-muted-foreground">
-                  {new Date().toLocaleDateString('pt-BR', { 
-                    weekday: 'long', 
-                    day: 'numeric', 
-                    month: 'long' 
+                  {new Date().toLocaleDateString('pt-BR', {
+                    weekday: 'long',
+                    day: 'numeric',
+                    month: 'long'
                   })}
                 </p>
               )}
             </div>
           </div>
-          
+
           <div className="flex items-center gap-2">
             <Button
               variant="ghost"
