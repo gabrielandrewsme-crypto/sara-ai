@@ -1,16 +1,17 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import {
-  Brain, CheckSquare, Wallet, Calendar, MessageCircle,
+  CheckSquare, Wallet, Calendar, MessageCircle,
   Sparkles, ArrowRight, Timer, CheckCircle2,
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { SaraLogo } from '@/components/SaraLogo';
 
 // ─── Data ──────────────────────────────────────────────────────────────────
 
 const features = [
   {
-    icon: Brain,
+    icon: CheckSquare,
     title: 'IA Especializada em TDAH',
     description:
       'Algoritmos que compreendem a dispersão e sugerem atalhos cognitivos personalizados para o seu dia. Aprende o seu ritmo e adapta os lembretes na hora certa.',
@@ -158,10 +159,7 @@ const Landing: React.FC = () => {
       >
         <div className="max-w-[1440px] mx-auto flex items-center justify-between">
           <a href="#" className="flex items-center gap-2 group">
-            <div className="size-10 bg-[#5C2D91] rounded-full flex items-center justify-center text-white
-                            shadow-md group-hover:scale-105 transition-transform">
-              <Brain className="w-5 h-5" />
-            </div>
+            <SaraLogo size={36} />
             <span className="text-[#1E2A2A] text-2xl font-extrabold tracking-tight">Sara</span>
           </a>
 
@@ -193,10 +191,10 @@ const Landing: React.FC = () => {
             </button>
           </div>
         </div>
-      </nav>
+      </nav >
 
       {/* ── Hero ───────────────────────────────────────────────────── */}
-      <section className="hero-gradient relative py-20 md:py-28 px-6 md:px-10 overflow-hidden">
+      < section className="hero-gradient relative py-20 md:py-28 px-6 md:px-10 overflow-hidden" >
         <div className="hero-dots absolute inset-0 pointer-events-none" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#E8725A]/10 rounded-full blur-3xl
                         pointer-events-none -translate-y-1/2 translate-x-1/2" />
@@ -280,8 +278,8 @@ const Landing: React.FC = () => {
                             ring-1 ring-white/10 bg-white p-2">
               <div className="rounded-xl bg-[#EDE9FE] aspect-video flex items-center justify-center">
                 <div className="flex flex-col items-center gap-3 text-[#5C2D91]/60">
-                  <Brain className="w-16 h-16" strokeWidth={1} />
-                  <p className="text-sm font-semibold">Sara Dashboard Preview</p>
+                  <SaraLogo size={96} />
+                  <p className="text-sm font-semibold text-[#5C2D91]/60">Sara Dashboard Preview</p>
                 </div>
               </div>
             </div>
@@ -311,10 +309,10 @@ const Landing: React.FC = () => {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section >
 
       {/* ── Features ───────────────────────────────────────────────── */}
-      <section className="bg-[#FAFBFA] py-24 px-6 md:px-10" id="funcionalidades">
+      < section className="bg-[#FAFBFA] py-24 px-6 md:px-10" id="funcionalidades" >
         <div className="max-w-[1440px] mx-auto">
           <motion.div
             variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
@@ -372,10 +370,10 @@ const Landing: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
       {/* ── Testimonials ───────────────────────────────────────────── */}
-      <section className="bg-white py-24 px-6 md:px-10" id="depoimentos">
+      < section className="bg-white py-24 px-6 md:px-10" id="depoimentos" >
         <div className="max-w-[1440px] mx-auto">
           <motion.div
             variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
@@ -421,10 +419,10 @@ const Landing: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
       {/* ── Pricing ────────────────────────────────────────────────── */}
-      <section className="bg-[#EDE9FE] py-28 px-6 md:px-10" id="precos">
+      < section className="bg-[#EDE9FE] py-28 px-6 md:px-10" id="precos" >
         <div className="max-w-[1440px] mx-auto flex flex-col items-center">
           <motion.div
             variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
@@ -505,16 +503,16 @@ const Landing: React.FC = () => {
             </p>
           </motion.div>
         </div>
-      </section>
+      </section >
 
       {/* ── Footer ─────────────────────────────────────────────────── */}
-      <footer className="bg-[#1E2A2A] py-16 px-6 md:px-10 text-white">
+      < footer className="bg-[#1E2A2A] py-16 px-6 md:px-10 text-white" >
         <div className="max-w-[1440px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pb-12 border-b border-white/10">
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-2">
-                <div className="size-9 bg-[#5C2D91] rounded-full flex items-center justify-center text-white">
-                  <Brain className="w-4 h-4" />
+                <div className="size-9 flex items-center justify-center">
+                  <SaraLogo size={36} />
                 </div>
                 <span className="text-white text-xl font-extrabold">Sara</span>
               </div>
@@ -547,8 +545,8 @@ const Landing: React.FC = () => {
             © {new Date().getFullYear()} Sara AI. Todos os direitos reservados.
           </p>
         </div>
-      </footer>
-    </div>
+      </footer >
+    </div >
   );
 };
 
