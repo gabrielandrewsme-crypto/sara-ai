@@ -54,8 +54,11 @@ const ResetPassword: React.FC = () => {
     if (error) {
       toast({ title: 'Erro ao redefinir senha', description: error.message, variant: 'destructive' });
     } else {
-      toast({ title: 'Senha atualizada!', description: 'Sua senha foi redefinida com sucesso.' });
-      navigate('/');
+      toast({
+        title: 'Sucesso!',
+        description: 'Sua senha foi atualizada com sucesso.',
+      });
+      navigate('/dashboard');
     }
   };
 

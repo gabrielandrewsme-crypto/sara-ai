@@ -49,7 +49,7 @@ const Auth: React.FC = () => {
 
   useEffect(() => {
     if (user && !isLoading) {
-      navigate('/');
+      navigate('/dashboard');
     }
   }, [user, isLoading, navigate]);
 
@@ -77,7 +77,7 @@ const Auth: React.FC = () => {
     setIsSubmitting(false);
 
     if (!error) {
-      navigate('/');
+      navigate('/dashboard');
     }
   };
 
@@ -131,7 +131,7 @@ const Auth: React.FC = () => {
     if (!error) {
       // Auto login after signup
       await signIn(signUpEmail, signUpPassword);
-      navigate('/');
+      navigate('/dashboard');
     }
   };
 
